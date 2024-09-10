@@ -3,7 +3,7 @@
 
 Explore e descubra todos os Pokémon da saga através desta aplicação interativa.
 
-![TelaDaPokedex](./tela)
+![TelaDaPokedex](./tela.png)
 
 ## Como iniciar a aplicação
 
