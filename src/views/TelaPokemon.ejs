@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<style>
+    body{
+        
+        background-color: azure;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    h1 {
+        font-size: 12em;
+        text-align: center;
+        text-transform: capitalize;
+    }
+    img{
+        border-radius: 50%;
+        background-color: antiquewhite;
+        display: block;
+        height: 90vh;
+        margin: 0px auto;
+    }
+</style>
+<body>
+    <h1><%= pokemon.name %></h1>
+    <img src='<%= pokemon.sprites.front_default %>' alt="<%= pokemon.name %>">
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: azure;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    #pokemon {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px;
+        padding: 10px;
+        text-transform: capitalize;
+        display: flex;
+        align-items: center;
+    }
+
+    #pokemon:hover {
+        scale: 1.01;
+        transition-duration: 0.1s;
+    }
+
+    #pokemon a {
+        text-decoration: none;
+        color: black;
+        font-size: 3rem;
+    }
+
+    #lateral-bar {
+        width: 300px;
+        height: 100vh;
+        /* Full viewport height */
+        background-color: rgba(0, 0, 0, 0.201);
+        color: white;
+        position: fixed;
+        /* Fix the bar to the side */
+        top: 0;
+        left: 0;
+        padding: 20px;
+    }
+
+    #main-content {
+        margin-left: 320px;
+        /* Adjust for the width of the sidebar */
+        padding: 20px;
+    }
+</style>
+
+<body>
+
+    <body>
+
+        <div id="lateral-bar">
+            <h1>PokeDex</h1>
+        </div>
+
+        <div id="main-content">
+            
+            <!-- vamos fazer um forEach no results (que seria nosso objeto pokemons passados para essa pagina) -->
+            <% results.forEach((pokemon, index)=> { %> 
+                
+                <div id="pokemon">
+                    <a href="/pokemon/<%= pokemon.name %>">
+                        <%= pokemon.name %>
+                    </a>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/<%= index + 1 %>.png"
+                        alt="<%= pokemon.name %>">
+                </div>
+
+                <% }) %>
+        </div>
+
+    </body>
+
+
+</body>
+
+</html>
