@@ -1,31 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documento</title>
-</head>
-<style>
-    body{
-        
-        background-color: azure;
-        font-family: Arial, Helvetica, sans-serif;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= pokemon.name.toUpperCase() %> - Detalhes</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
     }
+
+    .container {
+      max-width: 1000px;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
     h1 {
-        font-size: 12em;
-        text-align: center;
-        text-transform: capitalize;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-transform: capitalize;
     }
-    img{
-        border-radius: 50%;
-        background-color: antiquewhite;
-        display: block;
-        height: 90vh;
-        margin: 0px auto;
+
+    .pokemon-id {
+      font-size: 1.2rem;
+      color: #666;
     }
-</style>
+
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      margin: 1rem auto;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+      text-align: left;
+    }
+
+    .details div {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 1rem;
+    }
+
+    .stats {
+      margin-top: 2rem;
+    }
+
+    .stat {
+      margin-bottom: 0.5rem;
+    }
+
+  </style>
+</head>
 <body>
+  <div class="container">
     <h1><%= pokemon.name %></h1>
-    <img src='<%= pokemon.sprites.front_default %>' alt="<%= pokemon.name %>">
+    <div class="pokemon-id">#<%= pokemon.id %></div>
+    <img src="<%= pokemon.sprites.front_default %>" alt="<%= pokemon.name %>">
+    
+    <div class="details">
+      <div><strong>Tipo:</strong> <%= pokemon.types.map(t => t.type.name).join(', ') %></div>
+      <div><strong>Altura:</strong> <%= pokemon.height / 10 %> m</div>
+      <div><strong>Peso:</strong> <%= pokemon.weight / 10 %> kg</div>
+      <div><strong>Habilidade:</strong> <%= pokemon.abilities[0].ability.name %></div>
+      <div><strong>Experiência base:</strong> <%= pokemon.base_experience %></div>
+    </div>
+
+    <div class="stats">
+      <h2>Estatísticas</h2>
+      <% pokemon.stats.forEach(stat => { %>
+        <div class="stat"><strong><%= stat.stat.name.toUpperCase() %>:</strong> <%= stat.base_stat %></div>
+      <% }) %>
+    </div>
+  </div>
 </body>
 </html>
